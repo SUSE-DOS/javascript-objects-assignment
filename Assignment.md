@@ -10,11 +10,13 @@ Let's write a small program to keep track of which books you read and which book
 
 1. Create an **Array** of **Objects**
 1. Each **Object** in the **Array** should describe a book and have the following properties:
+
    1. Title (**String**)
    1. Author (**String**)
    1. alreadyRead (**Boolean**)
 
       A **Boolean** that indicates whether you already read the book
+
 1. Iterate a.k.a Loop through the **Array** of **Objects** containing the books
 1. For each book, print the book title and author as shown below:
    ```
@@ -31,7 +33,45 @@ Let's write a small program to keep track of which books you read and which book
       ```
 
 ```js
-// Your Answer
+const books = [
+  {
+    title: "Scar Tissue",
+    author: "Anthony Kiedis",
+    alreadyRead: true
+  },
+  {
+    title: "Does the Noise in My Head Bother You?",
+    author: "Steven Tylor",
+    alreadyRead: false
+  },
+  {
+    title: "Slash",
+    author: "Slash (himself)",
+    alreadyRead: true
+  },
+  {
+    title: "A Year in the Life of a Shattered Rock Star",
+    author: "Nikki Sixx",
+    alreadyRead: false
+  },
+  {
+    title: "Tommyland",
+    author: "Tommy Lee",
+    alreadyRead: true
+  }
+];
+
+for (let i in books) {
+  if (books[i].alreadyRead === true) {
+    console.log(
+      `You have already read "${books[i].title}" by ${books[i].author} `
+    );
+  } else {
+    console.log(
+      `You still need to read "${books[i].title}" by ${books[i].author} `
+    );
+  }
+}
 ```
 
 ### 2: The Fastest Ship in the Galaxy
@@ -40,55 +80,61 @@ Let's start you with a small ship to work on. Follow each prompt in the comments
 
 ```js
 const ship = {
-   name: 'Millennium Falcon',
-   speed: 42,
-   crew: ['Han Solo', 'Chewbacca'],
-   passengers: [],
-   famous: true,
-   heardOfIt: function() {
-      console.log("You've never heard of the millennium falcon?");
-   }
+  name: "Millennium Falcon",
+  speed: 42,
+  crew: ["Han Solo", "Chewbacca"],
+  passengers: [],
+  famous: true,
+  heardOfIt: function () {
+    console.log("You've never heard of the millennium falcon?");
+  }
 };
 
 // Console Log the Ship Name
 
 // Your Answer
-
+console.log(ship.name);
 
 // Change the Speed to 9999
 
 // Your Answer
-
+ship.speed = 9999;
 
 // Add 2 passengers, "Leia" and "Luke"
 
 // Your Answer
-
+ship.passengers.push("Leia", "Luke");
 
 // Console Log whether it's famous or not
 
 // Your Answer
-
+if (ship.famous === true) {
+  console.log("It is famous!");
+} else {
+  console.log("People have never heard of it!");
+}
 
 // Ask if you've heard of the millenium falcon
 
 // Your Answer
-
+ship.heardOfIt();
 
 // Remove Leia from the crew
 
 // Your Answer
-
+// If the array index of Leia is not known and other passengers exist, such as Luke.
+let passengerPos = ship.passengers.indexOf("Leia");
+ship.passengers.splice(passengerPos, 1);
 
 // Add a new property called "color" and set it equal to "beige"
 
 // Your Answer
-
+ship.colour = "beige";
 
 // Add a new property called "missions" and set it equal to an empty object
 
 // Your Answer
-
+ship.missions = {};
 
 /*
    Add the following 3 properties to the "missions" property object
@@ -99,7 +145,11 @@ const ship = {
 */
 
 // Your Answer
-
+ship.missions = {
+  kashyyk: true,
+  escapeFromAsteroid: "fun",
+  smuggledCargo: ["Prisoners", "Stolen Goods", "Spice"]
+};
 
 // Bonus Problem
 // You are going to need to use a search engine for this
@@ -107,6 +157,7 @@ const ship = {
 // Delete the "famous" property
 
 // Your Answer
+delete ship.famous;
 ```
 
 ## Submission Guidelines
